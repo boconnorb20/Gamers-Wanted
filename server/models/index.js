@@ -1,4 +1,6 @@
 const User = require('./User');
-const Thought = require('./Thought');
+const Game = require('./Game');
+const Console = require('./Console');
+const Order = require('./Order');
 
-module.exports = { User, Thought };
+module.exports = { User, Game, Console, Order };
