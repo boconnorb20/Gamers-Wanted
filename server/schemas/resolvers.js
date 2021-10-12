@@ -12,7 +12,7 @@ const resolvers = {
       const params = {};
 
       if (console) {
-        params.console = cconsole;
+        params.console = console;
       }
 
       if (gamename) {
