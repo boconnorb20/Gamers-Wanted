@@ -7,7 +7,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Particles from "react-tsparticles";
+//import Particles from "react-tsparticles";
 
 import Home from './pages/Home';
 import Profile from './pages/Profile';
@@ -70,59 +70,61 @@ function App() {
   );
 };
 
-function App() {
-  return (
-    
-    <Particles 
-     className="particles-canvas"
-     params={{
-      "interactivity": {
-        "events": {
-          "onHover": {
-            "enable": true,
-            "mode": "bubble"
-          },
-          "onClick": {
-            "enable": true,
-            "mode": "push"
-          }
-        },
-        "modes": {
-          "bubble": {
-            "opacity": 0.8,
-            "size": 10,
-            "color": {
-              "value": "#e4bb15"
-            }
-          }
-        }
-      },
-      "particles": {
-        "color": {
-          "value": "#000"
-        },
-        "links": {
-          "color": {
-            "value": "#000"
-          },
-          "enable": true,
-          "opacity": 0.5
-        },
-        "move": {
-          "enable": true
-        },
-        "opacity": {
-          "value": 0.5
-        },
-        "size": {
-          "value": 2
-        }
-       }
-      }
-     }
-        
-    />
-  );
-};    
-
 export default App;
+
+// function App() {
+//   return (
+    
+//     <Particles 
+//      className="particles-canvas"
+//      params={{
+//       "interactivity": {
+//         "events": {
+//           "onHover": {
+//             "enable": true,
+//             "mode": "bubble"
+//           },
+//           "onClick": {
+//             "enable": true,
+//             "mode": "push"
+//           }
+//         },
+//         "modes": {
+//           "bubble": {
+//             "opacity": 0.8,
+//             "size": 10,
+//             "color": {
+//               "value": "#e4bb15"
+//             }
+//           }
+//         }
+//       },
+//       "particles": {
+//         "color": {
+//           "value": "#000"
+//         },
+//         "links": {
+//           "color": {
+//             "value": "#000"
+//           },
+//           "enable": true,
+//           "opacity": 0.5
+//         },
+//         "move": {
+//           "enable": true
+//         },
+//         "opacity": {
+//           "value": 0.5
+//         },
+//         "size": {
+//           "value": 2
+//         }
+//        }
+//       }
+//      }
+        
+//     />
+//   );
+// };    
+
+

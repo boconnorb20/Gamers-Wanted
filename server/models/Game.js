@@ -8,9 +8,6 @@ const gameSchema = new Schema({
     required: true,
     trim: true
   },
-  genre: {
-    type: String
-  },
   image: {
     type: String
   },
@@ -28,7 +25,12 @@ const gameSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Console',
     required: true
-  }
+  },
+  genre: {
+    type: Schema.Types.ObjectId,
+    ref: 'genre',
+    required: true
+  },
 });
 
 const Game = mongoose.model('Game', gameSchema);
