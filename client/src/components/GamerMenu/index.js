@@ -2,49 +2,49 @@ import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { useStoreContext } from '../../utils/GlobalState';
 import {
-  UPDATE_CATEGORIES,
-  UPDATE_CURRENT_CATEGORY,
+  UPDATE_GAME,
+  UPDATE_ALL_GAMES,
 } from '../../utils/actions';
-import { QUERY_CATEGORIES } from '../../utils/queries';
+import { QUERY_ALL_GAMES, QUERY_GAMES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 
 function GamerMenu() {
   const [state, dispatch] = useStoreContext();
 
-  const { categories } = state;
+  const { games } = state;
 
-  const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
+  const { loading, data: gameData } = useQuery(QUERY_ALL_GAMES, QUERY_GAMES);
 
   useEffect(() => {
-    if (categoryData) {
+    if (gameData) {
       dispatch({
-        type: UPDATE_CATEGORIES,
-        categories: categoryData.categories,
+        type: UPDATE_ALL_GAMES,
+        games: gameData.games,
       });
-      categoryData.categories.forEach((category) => {
-        idbPromise('categories', 'put', category);
+      gameData.games.forEach((game) => {
+        idbPromise('games', 'put', game);
       });
     } else if (!loading) {
-      idbPromise('categories', 'get').then((categories) => {
+      idbPromise('games', 'get').then((games) => {
         dispatch({
-          type: UPDATE_CATEGORIES,
-          categories: categories,
+          type: UPDATE_GAME,
+          games: games,
         });
       });
     }
-  }, [categoryData, loading, dispatch]);
+  }, [gameData, loading, dispatch]);
 
   const handleClick = (id) => {
     dispatch({
-      type: UPDATE_CURRENT_CATEGORY,
-      currentCategory: id,
+      type: UPDATE_CURRENT_GAME,
+      currentGame: id,
     });
   };
 
   return (
     <div>
       <h2>Choose a Game:</h2>
-      {categories.map((item) => (
+      {games.map((item) => (
         <button
           key={item._id}
           onClick={() => {

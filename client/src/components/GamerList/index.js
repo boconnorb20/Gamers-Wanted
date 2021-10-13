@@ -1,30 +1,30 @@
 import React, { useEffect } from 'react';
 import GamerItem from '../GamerItem';
 import { useStoreContext } from '../../utils/GlobalState';
-import { UPDATE_PRODUCTS } from '../../utils/actions';
+import { UPDATE_GAME } from '../../utils/actions';
 import { useQuery } from '@apollo/client';
-import { QUERY_ALL_GAMES, QUERY_GAMES } from '../../utils/queries';
+import { QUERY_GAMES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
 
-function GameList() {
+function GamerList() {
   const [state, dispatch] = useStoreContext();
 
-  const { currentCategory } = state;
+  const { currentGame } = state;
 
-  const { loading, data } = useQuery(QUERY_ALL_GAMES);
+  const { loading, data } = useQuery(QUERY_GAMES);
 
   useEffect(() => {
     if (data) {
       dispatch({
         type: UPDATE_GAME,
-        game: data.game,
+        games: data.games,
       });
-      data.game.forEach((game) => {
-        idbPromise('game', 'put', game);
+      data.games.forEach((game) => {
+        idbPromise('games', 'put', game);
       });
     } else if (!loading) {
-      idbPromise('game', 'get').then((game) => {
+      idbPromise('games', 'get').then((game) => {
         dispatch({
           type: UPDATE_GAME,
           products: game,
@@ -34,12 +34,12 @@ function GameList() {
   }, [data, loading, dispatch]);
 
   function filterGame() {
-    if (!currentCategory) {
-      return state.game;
+    if (!currentGame) {
+      return state.games;
     }
 
-    return state.game.filter(
-      (game) => game.category._id === currentCategory
+    return state.games.filter(
+      (game) => game.games._id === currentGame
     );
   }
 
