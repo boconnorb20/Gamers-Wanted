@@ -7,26 +7,26 @@ export function pluralize(name, count) {
 
 export function idbPromise(storeName, method, object) {
   return new Promise((resolve, reject) => {
-    const request = window.indexedDB.open('shop-shop', 1);
+    const request = window.indexedDB.open('Gamers-Wanted', 1);
     let db, tx, store;
-    request.onupgradeneeded = function(e) {
+    request.onupgradeneeded = function(evt) {
       const db = request.result;
       db.createObjectStore('games', { keyPath: '_id' });
       db.createObjectStore('console', { keyPath: '_id' });
       db.createObjectStore('cart', { keyPath: '_id' });
     };
 
-    request.onerror = function(e) {
+    request.onerror = function(evt) {
       console.log('There was an error');
     };
 
-    request.onsuccess = function(e) {
+    request.onsuccess = function(evt) {
       db = request.result;
       tx = db.transaction(storeName, 'readwrite');
       store = tx.objectStore(storeName);
 
-      db.onerror = function(e) {
-        console.log('error', e);
+      db.onerror = function(evt) {
+        console.log('error', evt);
       };
 
       switch (method) {

@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
 import GamerItem from '../GamerItem';
 import { useStoreContext } from '../../utils/GlobalState';
-import { UPDATE_PRODUCTS } from '../../utils/actions';
+import { UPDATE_GAME } from '../../utils/actions';
 import { useQuery } from '@apollo/client';
-import { QUERY_ALL_GAMES, QUERY_GAMES } from '../../utils/queries';
+import { QUERY_GAMES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
 
-function GameList() {
+function GamerList() {
   const [state, dispatch] = useStoreContext();
 
-  const { currentCategory } = state;
+  const { currentGame } = state;
 
-  const { loading, data } = useQuery(QUERY_ALL_GAMES);
+  const { loading, data } = useQuery(QUERY_GAMES);
 
   useEffect(() => {
     if (data) {
@@ -27,19 +27,19 @@ function GameList() {
       idbPromise('game', 'get').then((game) => {
         dispatch({
           type: UPDATE_GAME,
-          products: game,
+          game: game,
         });
       });
     }
   }, [data, loading, dispatch]);
 
   function filterGame() {
-    if (!currentCategory) {
+    if (!currentGame) {
       return state.game;
     }
 
     return state.game.filter(
-      (game) => game.category._id === currentCategory
+      (game) => game.games._id === currentGame
     );
   }
 
