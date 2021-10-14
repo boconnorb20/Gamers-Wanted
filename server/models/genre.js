@@ -1,12 +1,13 @@
 const { Schema, model } = require('mongoose');
-
-const genre = new Schema({
-    type: String,
+const { Schema } = mongoose;
+const genreSchema = new Schema({
+    type:{
+    type:String,
     required:true,
     trim: true,
-  }
-  );
+  },
+});
 
-const genre = model('categories', genre);
+const Genre = mongoose.model('categories', genreSchema);
 
-module.exports = genre;
+module.exports = Genre;
