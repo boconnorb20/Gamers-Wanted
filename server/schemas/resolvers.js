@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Product, Category, Order } = require('../models');
+const { User, Game, Console } = require('../models');
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
@@ -29,7 +29,7 @@ const resolvers = {
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          path: 'orders.gamess',
+          path: 'orders.games',
           populate: 'console'
         });
 
@@ -43,7 +43,7 @@ const resolvers = {
     order: async (parent, { _id }, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          path: 'orders.gamess',
+          path: 'orders.games',
           populate: 'console'
         });
 
@@ -59,7 +59,7 @@ const resolvers = {
 
       const { games } = await order.populate('games').execPopulate();
 
-      for (let i = 0; i < gamess.length; i++) {
+      for (let i = 0; i < games.length; i++) {
         const game = await stripe.gamess.create({
           gamename: games[i].gamename,
           genre: games[i].genre,
