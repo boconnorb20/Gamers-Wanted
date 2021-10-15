@@ -91,7 +91,48 @@ db.once('open', async () => {
       quantity: 2,
       console: consoles[0]._id,
       genre:   genre[6]._id
+    },
+    {
+      gamename: 'The Witcher 3 Wild Hunt',
+      image: 'witcher_wild_hunt.jpg',
+      price: 27.71,
+      quantity: 2,
+      console: consoles[1]._id,
+      genre:   genre[6]._id
+    },
+    {
+      gamename: 'Remnant: From the Ashes',
+      image: 'remnant.jpg',
+      price: 20.49,
+      quantity: 3,
+      console: consoles[1]._id,
+      genre:   genre[0]._id
+    },
+    {
+      gamename: 'Red Dead Redemption',
+      image: 'red_dead_redemption_2.jpg',
+      price: 25.99,
+      quantity: 4,
+      console: consoles[1]._id,
+      genre:   genre[0]._id
+    },
+    {
+      gamename: 'NASCAR Ignition',
+      image: 'nascar_21.jpg',
+      price: 49.99,
+      quantity: 5,
+      console: consoles[1]._id,
+      genre:   genre[1]._id
+    },
+    {
+      gamename: 'Mass Effect Legendary Edition',
+      image: 'mass_effect.jpg',
+      price: 45.98,
+      quantity: 6,
+      console: consoles[1]._id,
+      genre:   genre[6]._id
     }
+
      
     
      ]);
