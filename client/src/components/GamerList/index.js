@@ -18,13 +18,13 @@ function GamerList() {
     if (data) {
       dispatch({
         type: UPDATE_GAME,
-        game: data.game,
+        games: data.games,
       });
-      data.game.forEach((game) => {
-        idbPromise('game', 'put', game);
+      data.games.forEach((game) => {
+        idbPromise('games', 'put', game);
       });
     } else if (!loading) {
-      idbPromise('game', 'get').then((game) => {
+      idbPromise('games', 'get').then((game) => {
         dispatch({
           type: UPDATE_GAME,
           game: game,

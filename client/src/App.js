@@ -7,14 +7,15 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+//import Particles from "react-tsparticles";
 
-// import { Provider } from 'react-redux';
-// import store from './utils/store';
-
-import Home from './pages/Home';
-
-import Signup from './pages/Signup';
-import Login from './pages/Login';
+// import Home from './pages/Home';
+// import Profile from './pages/Profile';
+// import Signup from './pages/Signup';
+// import Login from './pages/Login';
+// import Header from './components/Header';
+// import Footer from './components/Footer';
 
 import GameOrder from './pages/GameOrder';
 import PrevOrders from './pages/PrevOrders';
@@ -38,6 +39,7 @@ const client = new ApolloClient ({
 
 function App() {
   return (
+    
     <ApolloProvider client={client}>
       <Router>
 
@@ -64,7 +66,66 @@ function App() {
         </div>
       </Router>
     </ApolloProvider>
+    
+    
   );
-}
+};
 
 export default App;
+
+// function App() {
+//   return (
+    
+//     <Particles 
+//      className="particles-canvas"
+//      params={{
+//       "interactivity": {
+//         "events": {
+//           "onHover": {
+//             "enable": true,
+//             "mode": "bubble"
+//           },
+//           "onClick": {
+//             "enable": true,
+//             "mode": "push"
+//           }
+//         },
+//         "modes": {
+//           "bubble": {
+//             "opacity": 0.8,
+//             "size": 10,
+//             "color": {
+//               "value": "#e4bb15"
+//             }
+//           }
+//         }
+//       },
+//       "particles": {
+//         "color": {
+//           "value": "#000"
+//         },
+//         "links": {
+//           "color": {
+//             "value": "#000"
+//           },
+//           "enable": true,
+//           "opacity": 0.5
+//         },
+//         "move": {
+//           "enable": true
+//         },
+//         "opacity": {
+//           "value": 0.5
+//         },
+//         "size": {
+//           "value": 2
+//         }
+//        }
+//       }
+//      }
+        
+//     />
+//   );
+// };    
+
+
