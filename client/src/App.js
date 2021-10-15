@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -16,25 +17,24 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import Header from './components/Header';
 // import Footer from './components/Footer';
 
-const httpLink = createHttpLink({
-  uri: '/graphql',
-});
+import GameOrder from './pages/GameOrder';
+import PrevOrders from './pages/PrevOrders';
+
+const httpLink = createHttpLink ({
+    uri: '/graphql',
+    });
 
 const authLink = setContext((_, { headers }) => {
-  // get the authentication token from local storage if it exists
-  const token = localStorage.getItem('id_token');
-  // return the headers to the context so httpLink can read them
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    },
-  };
-});
-
-const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
+  const token = localStorage.getItem ('id_token');
+   return {
+     headers: {...headers, authorization: token ? `Bearer ${token}` : '',
+     },
+   };
+  });
+  
+const client = new ApolloClient ({
+    link: authLink.concat(httpLink),
+   cache: new InMemoryCache (),
 });
 
 function App() {
@@ -42,6 +42,7 @@ function App() {
     
     <ApolloProvider client={client}>
       <Router>
+
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
           <div className="container">
@@ -54,14 +55,14 @@ function App() {
             <Route exact path="/signup">
               <Signup />
             </Route>
-            <Route exact path="/me">
-              <Profile />
+            <Route exact path="/PrevOrders">
+              <PrevOrders />
             </Route>
-            <Route exact path="/profiles/:profileId">
-              <Profile />
+            <Route exact path="/GameOrder">
+              <GameOrder />
             </Route>
           </div>
-          <Footer />
+
         </div>
       </Router>
     </ApolloProvider>

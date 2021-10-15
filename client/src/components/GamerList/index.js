@@ -27,7 +27,7 @@ function GamerList() {
       idbPromise('games', 'get').then((game) => {
         dispatch({
           type: UPDATE_GAME,
-          products: game,
+          game: game,
         });
       });
     }
@@ -35,10 +35,10 @@ function GamerList() {
 
   function filterGame() {
     if (!currentGame) {
-      return state.games;
+      return state.game;
     }
 
-    return state.games.filter(
+    return state.game.filter(
       (game) => game.games._id === currentGame
     );
   }
