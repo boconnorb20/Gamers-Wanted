@@ -44,7 +44,11 @@ function Navigate() {
       <h1>
         <Link to="/">
           
+<<<<<<< HEAD
+          Gamers_Wanted
+=======
           -Gamers Wanted
+>>>>>>> 677e06d7c8e10a92919b20c4d1c2c4485aa42465
         </Link>
       </h1>
 
