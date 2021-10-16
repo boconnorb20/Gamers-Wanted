@@ -20,7 +20,7 @@ export const reducer = (state, action) => {
     case UPDATE_GAME:
       return {
         ...state,
-        game: [...action.game],
+        games: [...action.games],
       };
 
     case ADD_TO_CART:
@@ -32,7 +32,7 @@ export const reducer = (state, action) => {
     case ADD_MULTIPLE_TO_CART:
       return {
         ...state,
-        cart: [...state.cart, ...action.game],
+        cart: [...state.cart, ...action.games],
       };
     // Returns a copy of state, sets the cartOpen to true and maps through the items in the cart.
     // If the item's `id` matches the `id` that was provided in the action.payload, we update the purchase quantity.
@@ -40,7 +40,7 @@ export const reducer = (state, action) => {
       return {
         ...state,
         cartOpen: true,
-        cart: state.cart.map((game) => {
+        cart: state.cart.map(game => {
           if (action._id === game._id) {
             game.purchaseQuantity = action.purchaseQuantity;
           }
@@ -51,7 +51,7 @@ export const reducer = (state, action) => {
     // First we iterate through each item in the cart and check to see if the `product._id` matches the `action._id`
     // If so, we remove it from our cart and set the updated state to a variable called `newState`
     case REMOVE_FROM_CART:
-      let newState = state.cart.filter((game) => {
+      let newState = state.cart.filter(game => {
         return game._id !== action._id;
       });
 
@@ -60,32 +60,32 @@ export const reducer = (state, action) => {
       return {
         ...state,
         cartOpen: newState.length > 0,
-        cart: newState,
+        cart: newState
       };
 
     case CLEAR_CART:
       return {
         ...state,
         cartOpen: false,
-        cart: [],
+        cart: []
       };
 
     case TOGGLE_CART:
       return {
         ...state,
-        cartOpen: !state.cartOpen,
+        cartOpen: !state.cartOpen
       };
 
     case UPDATE_CONSOLE:
       return {
         ...state,
-        console: [...action.console],
+        consoles: [...action.consoles],
       };
 
     case UPDATE_CURRENT_CONSOLE:
       return {
         ...state,
-        currentConsole: action.currentConsole,
+        currentConsole: action.currentConsole
       };
 
       case UPDATE_GENRE:
@@ -97,8 +97,8 @@ export const reducer = (state, action) => {
       case UPDATE_CURRENT_GENRE:
         return {
           ...state,
-          currentGenre: action.currentGenre,
-        };
+          currentGenre: action.currentGenre
+        }
 
     // Return the state as is in the event that the `action.type` passed to our reducer was not accounted for by the developers
     // This saves us from a crash.
