@@ -12,9 +12,9 @@ import {
 } from '../utils/actions';
 import { QUERY_GAMES } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
-// import spinner from '../assets/spinner.gif';
+import spinner from '../assets/spinner.gif';
 
-function gameStore() {
+function GameStore() {
   const [state, dispatch] = useStoreContext();
   const { id } = useParams();
 
@@ -114,4 +114,4 @@ function gameStore() {
   );
 };
 
-export default gameStore;
+export default GameStore;

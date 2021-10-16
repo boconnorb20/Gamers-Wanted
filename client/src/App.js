@@ -11,7 +11,7 @@ import { setContext } from '@apollo/client/link/context';
 
 
 import Home from './pages/Home';
-import gameStore from './pages/gameStore';
+import gameStore from './pages/GameStore';
 import NotHere from './pages/NotHere';
 import Login from './pages/Login';
 import Signup from './pages/Signup';

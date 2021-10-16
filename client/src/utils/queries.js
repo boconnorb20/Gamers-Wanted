@@ -18,7 +18,7 @@ export const QUERY_GAMES = gql`
 
 export const QUERY_CHECKOUT = gql`
   query getCheckout($games: [ID]!) {
-    checkout($games: $games) {
+    checkout(games: $games) {
       session
     }
   }

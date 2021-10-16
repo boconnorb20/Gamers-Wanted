@@ -5,7 +5,7 @@ import { UPDATE_GAME } from '../../utils/actions';
 import { useQuery } from '@apollo/client';
 import { QUERY_GAMES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
-// import spinner from '../../assets/spinner.gif';
+import spinner from '../../assets/spinner.gif';
 
 function GamerList() {
   const [state, dispatch] = useStoreContext();
@@ -62,7 +62,7 @@ function GamerList() {
       ) : (
         <h3>No games added yet!</h3>
       )}
-      {/* {loading ? <img src={spinner} alt="loading" /> : null} */}
+      {loading ? <img src={spinner} alt="loading" /> : null}
     </div>
   );
 }

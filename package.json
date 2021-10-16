@@ -21,11 +21,7 @@
   "devDependencies": {
     "concurrently": "^6.3.0"
   },
-<<<<<<< HEAD
-  "dependencies": {}
-=======
   "dependencies": {
     "@stripe/stripe-js": "^1.20.2"
   }
->>>>>>> 7c333d9407b0dd7bb91fe83ea9ddf7d894d2e539
 }
