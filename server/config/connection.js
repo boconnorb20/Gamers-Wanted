@@ -12,3 +12,4 @@ mongoose.connect(process.env.MONGODB_URI|| 'mongodb://localhost:27017/Gamers-Wan
 module.exports = mongoose.connection;
 
 // "mongodb+srv://boconnor20:Ilovemywife!@cluster0.xuuae.mongodb.net/Gamers?retryWrites=true&w=majority"
+
