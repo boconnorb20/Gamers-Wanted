@@ -21,10 +21,8 @@
    
   ## Questions/Inquiries 
   ### GitHub Profile
-   (http://github.com/https://github.com/tommy1krr 
-    https://github.com/Saiban-Hussein 
-    https://github.com/boconnorb20)
+   (http://github.com/https://github.com/tommy1krr ---- https://github.com/Saiban-Hussein -----https://github.com/boconnorb20)
   ### Email
-  shhussein@m.marywood.edu, 
-  tom.k.500587@gmail.com, 
-  boconnor20@gmail.com
+  shhussein@m.marywood.edu ----- 
+  tom.k.500587@gmail.com ----
+  boconnor20@gmail.com ----
