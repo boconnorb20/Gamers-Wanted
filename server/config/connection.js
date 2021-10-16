@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb+srv://boconnor20:Ilovemywife!@cluster0.xuuae.mongodb.net/Gamers?retryWrites=true&w=majority" || 'mongodb://localhost/Gamers',
+mongoose.connect(process.env.MONGODB_URI|| 'mongodb://localhost/Gamers',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -10,3 +10,5 @@ mongoose.connect("mongodb+srv://boconnor20:Ilovemywife!@cluster0.xuuae.mongodb.n
 );
 
 module.exports = mongoose.connection;
+
+// "mongodb+srv://boconnor20:Ilovemywife!@cluster0.xuuae.mongodb.net/Gamers?retryWrites=true&w=majority"
