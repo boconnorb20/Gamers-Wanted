@@ -2,14 +2,14 @@ import { gql } from '@apollo/client';
 
 export const QUERY_GAMES = gql`
   query getGames($console: ID) {
-    games(console: $console) {
+    games(consoles: $consoles) {
       _id
       gamename
       genre
       price
       quantity
       image
-      console {
+      consoles {
         _id
       }
     }
@@ -26,13 +26,13 @@ export const QUERY_CHECKOUT = gql`
 
 export const QUERY_ALL_GAMES = gql`
   {
-    products {
+    games {
       _id
       gamename
       genre
       price
       quantity
-      console {
+      consoles {
         name
       }
     }
@@ -41,7 +41,7 @@ export const QUERY_ALL_GAMES = gql`
 
 export const QUERY_CONSOLE = gql`
   {
-    console {
+    consoles {
       _id
       name
     }
@@ -55,7 +55,7 @@ export const QUERY_USER = gql`
       orders {
         _id
         purchaseDate
-        products {
+        games {
           _id
           gamename
           genre

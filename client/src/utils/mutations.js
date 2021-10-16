@@ -15,13 +15,13 @@ export const ADD_ORDER = gql`
   mutation addOrder($games: [ID]!) {
     addOrder(games: $games) {
       purchaseDate
-      products {
+      games {
       _id
       gamename
       genre
       price
       quantity
-      console {
+      consoles {
         name
         }
       }
@@ -31,14 +31,12 @@ export const ADD_ORDER = gql`
 
 export const ADD_USER = gql`
   mutation addUser(
-    $firstName: String!
-    $lastName: String!
+    $username: String!
     $email: String!
     $password: String!
   ) {
     addUser(
-      firstName: $firstName
-      lastName: $lastName
+      userame: $userame
       email: $email
       password: $password
     ) {

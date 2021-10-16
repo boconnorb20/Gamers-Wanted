@@ -27,7 +27,7 @@ function ConsoleMenu() {
     } else if (!loading) {
       idbPromise('consoles', 'get').then((consoles) => {
         dispatch({
-          type: UPDATE_CURRENT_CONSOLE,
+          type: UPDATE_CONSOLE,
           consoles: consoles,
         });
       });

@@ -10,7 +10,7 @@ import spinner from '../../assets/spinner.gif';
 function GamerList() {
   const [state, dispatch] = useStoreContext();
 
-  const { currentGame } = state;
+  const { currentConsole } = state;
 
   const { loading, data } = useQuery(QUERY_GAMES);
 
@@ -24,22 +24,22 @@ function GamerList() {
         idbPromise('games', 'put', game);
       });
     } else if (!loading) {
-      idbPromise('games', 'get').then((game) => {
+      idbPromise('games', 'get').then((games) => {
         dispatch({
           type: UPDATE_GAME,
-          game: game,
+          games: games,
         });
       });
     }
   }, [data, loading, dispatch]);
 
   function filterGame() {
-    if (!currentGame) {
-      return state.game;
+    if (!currentConsole) {
+      return state.games;
     }
 
-    return state.game.filter(
-      (game) => game.games._id === currentGame
+    return state.games.filter(
+      (game) => game.console._id === currentConsole
     );
   }
 
@@ -48,14 +48,14 @@ function GamerList() {
       <h2>Our Games:</h2>
       {state.games.length ? (
         <div className="flex-row">
-          {filterGame().map((game) => (
+          {filterGame().map((games) => (
             <GamerItem
-              key={game._id}
-              _id={game._id}
-              image={game.image}
-              name={game.name}
-              price={game.price}
-              quantity={game.quantity}
+              key={games._id}
+              _id={games._id}
+              image={games.image}
+              name={games.name}
+              price={games.price}
+              quantity={games.quantity}
             />
           ))}
         </div>

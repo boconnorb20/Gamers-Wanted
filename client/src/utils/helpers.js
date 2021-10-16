@@ -9,24 +9,24 @@ export function idbPromise(storeName, method, object) {
   return new Promise((resolve, reject) => {
     const request = window.indexedDB.open('Gamers-Wanted', 1);
     let db, tx, store;
-    request.onupgradeneeded = function(evt) {
+    request.onupgradeneeded = function(event) {
       const db = request.result;
       db.createObjectStore('games', { keyPath: '_id' });
-      db.createObjectStore('console', { keyPath: '_id' });
+      db.createObjectStore('consoles', { keyPath: '_id' });
       db.createObjectStore('cart', { keyPath: '_id' });
     };
 
-    request.onerror = function(evt) {
+    request.onerror = function(event) {
       console.log('There was an error');
     };
 
-    request.onsuccess = function(evt) {
+    request.onsuccess = function(event) {
       db = request.result;
       tx = db.transaction(storeName, 'readwrite');
       store = tx.objectStore(storeName);
 
-      db.onerror = function(evt) {
-        console.log('error', evt);
+      db.onerror = function(event) {
+        console.log('error', event);
       };
 
       switch (method) {

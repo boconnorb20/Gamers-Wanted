@@ -11,7 +11,7 @@ import { setContext } from '@apollo/client/link/context';
 
 
 import Home from './pages/Home';
-import gameStore from './pages/GameStore';
+import GameStore from './pages/GameStore';
 import NotHere from './pages/NotHere';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -48,12 +48,12 @@ function App() {
           <StoreProvider>
             <Nav />
             <Switch>
-              <Route exact path="home" component={Home} />
+              <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/gameorder" component={GameOrder} />
               <Route exact path="/prevorders" component={PrevOrders} />
-              <Route exact path="/gamestore" component={gameStore} />
+              <Route exact path="/gamestore" component={GameStore} />
               <Route component={NotHere} />
             </Switch>
           </StoreProvider>
