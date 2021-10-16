@@ -21,6 +21,7 @@ server.applyMiddleware({ app });
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+
 //static images
 app.use('/images', express.static(path.join(__dirname, '../public/images')));
 

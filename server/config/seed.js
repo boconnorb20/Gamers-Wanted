@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const { Game, Console, Genre, User } = require('../models');
 
 db.once('open', async () => {
+
   
   await Genre.deleteMany();
   const genre = await Genre.insertMany([
@@ -26,8 +27,10 @@ db.once('open', async () => {
   console.log('cosole seeded');
 
 
+
   await Game.deleteMany();
   const games = await Game.insertMany([
+
      
     { 
       gamename: "Madden NFL 22",
@@ -148,6 +151,7 @@ await User.deleteMany();
       password: "password09",
       orders: [
         {
+
           games: [games[0]._id, games[1]._id, games[2]._id]
         }]
     },
@@ -157,7 +161,9 @@ await User.deleteMany();
       password: "password02",
       orders: [
         {
+
           games: [games[6]._id, games[5]._id, games[4]._id]
+
         }]
     },
     {
@@ -166,6 +172,7 @@ await User.deleteMany();
      password: "password03",
      orders: [
       {
+
         games: [games[7]._id, games[6]._id, games[7]._id]
       }]
     },  
