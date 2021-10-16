@@ -4,6 +4,7 @@ import { useStoreContext } from '../../utils/GlobalState';
 import {
   UPDATE_GAME,
   UPDATE_ALL_GAMES,
+  UPDATE_CURRENT_GAME,
 } from '../../utils/actions';
 import { QUERY_ALL_GAMES, QUERY_GAMES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';

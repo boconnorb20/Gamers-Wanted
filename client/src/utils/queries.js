@@ -51,8 +51,7 @@ export const QUERY_CONSOLE = gql`
 export const QUERY_USER = gql`
   {
     user {
-      firstName
-      lastName
+      username
       orders {
         _id
         purchaseDate
